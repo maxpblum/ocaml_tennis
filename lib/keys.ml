@@ -12,6 +12,18 @@ let p1_key_to_input : string -> player_turn_input = function
   | "c" -> Shot ShortAd
   | _ -> Ignorable
 
+let p2_key_to_input : string -> player_turn_input = function
+  | "u" -> Shot DeepDc
+  | "i" -> Shot DeepCtr
+  | "o" -> Shot DeepAd
+  | "j" -> Shot MidDc
+  | "k" -> Shot MidCtr
+  | "l" -> Shot MidAd
+  | "m" -> Shot ShortDc
+  | "," -> Shot ShortCtr
+  | "." -> Shot ShortAd
+  | _ -> Ignorable
+
 let pos_to_p1_key : position -> string = function
   | DeepDc -> "q"
   | DeepCtr -> "w"

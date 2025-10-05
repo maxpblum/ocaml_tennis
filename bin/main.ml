@@ -1,8 +1,10 @@
 open Ocaml_tennis.Game_logic
 open Ocaml_tennis.Game_drawing
+open Ocaml_tennis.Keys
 
 (* Unimplemented. *)
-let input_from_char (_ : player) (_ : string) : player_turn_input = Shot MidAd
+let input_from_char (pl : player) (ch : string) : player_turn_input =
+  (if pl = One then p1_key_to_input else p2_key_to_input) ch
 
 let draw_state_cmds (state : state) = Terml.([
   Command.Terminal Terminal.(ClearScreen All);

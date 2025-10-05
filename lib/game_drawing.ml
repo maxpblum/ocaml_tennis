@@ -91,5 +91,16 @@ let draw_shot_choosers (turn : player) (box : string list list) =
   |> draw_key ShortCtr (05 * court_length / 12) (3 * court_width / 6)
   |> draw_key ShortDc  (05 * court_length / 12) (1 * court_width / 6)
 
+let draw_status (status : string) (box : string list list) =
+  draw_pic {startrow = court_length; startcol = 0; pic = status} box
+
 let str_of_state (st : state) : string =
-  basic_court |> draw_player Far st.p2_pos |> draw_player Near st.p1_pos |> draw_shot_choosers st.turn |> str_of_box
+  [
+    basic_court
+    |> draw_player (if st.turn = One then Near else Far) st.p1_pos
+    |> draw_player (if st.turn = Two then Near else Far) st.p2_pos
+    |> draw_shot_choosers st.turn
+    |> str_of_box;
+    "\n";
+    st.status;
+  ] |> String.concat ""

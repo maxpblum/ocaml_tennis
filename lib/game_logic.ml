@@ -5,16 +5,6 @@ type position =
   | MidAd   | MidCtr   | MidDc
   | ShortAd | ShortCtr | ShortDc
 
-let _ = DeepAd
-let _ = DeepCtr
-let _ = DeepDc
-let _ = MidAd
-let _ = MidCtr
-let _ = MidDc
-let _ = ShortAd
-let _ = ShortCtr
-let _ = ShortDc
-
 type state = {
   turn : player;
   p1_pos : position;
